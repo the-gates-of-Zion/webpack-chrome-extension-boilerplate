@@ -1,37 +1,13 @@
 const path = require('path');// just to manipulate path
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
-const getEntry = (sourceDir = 'src') => {
-  return {
-    popup: path.resolve(__dirname, `${sourceDir}/popup/popup.jsx`),
-    options: path.resolve(__dirname, `${sourceDir}/options/options.jsx`),
-    content: path.resolve(__dirname, `${sourceDir}/content/content.js`),
-    background: path.resolve(__dirname, `${sourceDir}/background/background.js`),
-  };
-};
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
-/**
-popup: './src/popup/popup.js',
-options: './src/options/options.js',
-content: './src/content/content.js',
-background: './src/background/background.js',
- */
-
-const getOutput = (browserDir, outputDir = 'dev') => {
-  return {
-    path: path.resolve(__dirname, `${outputDir}/${browserDir}`),
-    filename: '[name]/[name].js',
-  };
-};
 
 module.exports = {
   mode: 'development',
   entry: {
-    keyNameA: './src/index.js',
-    keyNameB: './src/print.js',
-    background: './src/background/background.js',
     popup: './src/popup/popup.js',
     options: './src/options/options.js',
     content: './src/content/content.js',
@@ -43,13 +19,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    /*
-    new HtmlWebpackPlugin({
 
-      title: 'Output Management',
-      template: 'src/index.html',
-
-    }),*/
     new HtmlWebpackPlugin({
       title: 'this is popup',
       filename: 'popup/popup.html',
@@ -62,6 +32,12 @@ module.exports = {
       template: 'src/options/options.html',
       chunks: ['options']
     }),
+
+    ///*
+    new CopyWebpackPlugin([
+      { from: 'src/manifest.json', to: path.resolve(__dirname, 'dist') },
+    ]),
+    //*/
 
   ],
   output: {
