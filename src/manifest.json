@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Name of the extension",
+  "description": "description of the extension",
+  "version": "1",
+  "icons": {
+    "128": "icon128.png",
+    "48": "icon48.png",
+    "16": "icon16.png"
+  },
+  "browser_action": {
+    "default_icon": "icon16.png",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts":[{
+    "matches": ["*://*.wikipedia.org/*"],
+    "css": ["content.css"],
+    "js": ["content.js"]
+  }],
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "options_page":"options.html"
+}
