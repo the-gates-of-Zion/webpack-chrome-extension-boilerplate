@@ -4,26 +4,26 @@
   "description": "description of the extension",
   "version": "1",
   "icons": {
-    "128": "icon128.png",
-    "48": "icon48.png",
-    "16": "icon16.png"
+    "128": "imgs/icon128.png",
+    "48": "imgs/icon48.png",
+    "16": "imgs/icon16.png"
   },
   "browser_action": {
-    "default_icon": "icon16.png",
-    "default_popup": "popup.html"
+    "default_icon": "imgs/icon16.png",
+    "default_popup": "popup/popup.html"
   },
   "background": {
-    "scripts": ["background.js"],
+    "scripts": ["background/background.js"],
     "persistent": false
   },
   "content_scripts":[{
     "matches": ["*://*.wikipedia.org/*"],
-    "css": ["content.css"],
-    "js": ["content.js"]
+    "css": ["content/content.css"],
+    "js": ["content/content.js"]
   }],
   "permissions": [
     "activeTab",
     "storage"
   ],
-  "options_page":"options.html"
+  "options_page":"options/options.html"
 }

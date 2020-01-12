@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import './style.css';
+import './test.scss';
 import Icon from './webpack.png';
 import Data from './data.xml'
   
