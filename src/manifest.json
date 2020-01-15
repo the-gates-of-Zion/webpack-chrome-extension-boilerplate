@@ -24,5 +24,12 @@
     "activeTab",
     "storage"
   ],
-  "options_page":"options/options.html"
+  "options_page":"options/options.html",
+  "web_accessible_resources": [
+    "background/*.",
+    "content/*",
+    "imgs/*",
+    "options/*",
+    "popup/*"
+  ]
 }

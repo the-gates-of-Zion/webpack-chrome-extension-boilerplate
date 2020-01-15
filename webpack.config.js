@@ -14,6 +14,7 @@ module.exports = {
     background: './src/background/background.js',
   },
   devtool: 'inline-source-map',
+  //devtool: dev ? 'eval-cheap-module-source-map' : 'source-map',
   devServer: {
     contentBase: './dist',
   },
