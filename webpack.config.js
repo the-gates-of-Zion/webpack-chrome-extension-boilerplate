@@ -2,7 +2,7 @@ const path = require('path');// just to manipulate path
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-
+const ChromeExtensionReloader  = require('webpack-chrome-extension-reloader');
 
 
 module.exports = {
@@ -19,7 +19,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-
+    new ChromeExtensionReloader(),
     new HtmlWebpackPlugin({
       title: 'this is popup',
       filename: 'popup/popup.html',
@@ -36,6 +36,7 @@ module.exports = {
     ///*
     new CopyWebpackPlugin([
       { from: 'src/manifest.json', to: path.resolve(__dirname, 'dist') },
+      { from:'src/imgs',to: path.resolve(__dirname, 'dist/imgs/')} 
     ]),
     //*/
 
